@@ -1,19 +1,11 @@
 import React, { Component } from 'react'
 import {
-  withStyles,
-  Card,
-  CardContent,
   Typography,
-  TextField,
   Grid,
-  Button,
-  Paper,
-  CardMedia
 } from '@material-ui/core'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { connect } from 'react-redux'
 import compose from 'recompose/compose'
-import image from '../assets/compositor\ 1.png'
 import CarCard from './CarCard'
 import {fetchAllCars} from '../actions'
 
@@ -28,12 +20,7 @@ class LandingPage extends Component {
     this.props.receiveAllCarModels()
 }
 
-  componentWillReceiveProps(nextProps) {
- 
-  }
-
-  onClickCarCard = (modelName, displayName) => () => {
-    console.log('Model::', modelName, displayName)
+onClickCarCard = (modelName, displayName) => () => {
         const {history} = this.props;
         history.push({
           pathname: '/carDetails',
@@ -51,7 +38,7 @@ class LandingPage extends Component {
            className="mainGrid"
           direction="column"
           alignItems="center"
-          justify="center">
+          justifyContent="center">
               <Grid item cstyle={{marginBottom: 20}}>
               <Typography variant="h5" className="allModelText">
           All Models
@@ -71,14 +58,13 @@ class LandingPage extends Component {
         <Grid container
         direction="row"
         alignItems="center"
-        justify="center"
+        justifyContent="center"
         spacing={2}
-        // style={{ minHeight: '100vh' }}
         >
             {
                 models.map((item) => {
                         return (
-                            <Grid className="carGrid" item onClick={this.onClickCarCard(item.model, item.displayName)} key={item.model}>
+                            <Grid role='modelCard' className="carGrid" item onClick={this.onClickCarCard(item.model, item.displayName)} key={item.model}>
                                 <CarCard  title={item.displayName} modelName={item.model} data={item}/>
                             </Grid>
                         )

@@ -10,13 +10,9 @@ class LandingPage extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    
-  }
-
     onClick = () => {
         const {history} = this.props;
-
+        
         history.push('/allCars')
   }
 

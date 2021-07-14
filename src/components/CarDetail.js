@@ -4,9 +4,6 @@ import {
 } from '@material-ui/core'
 import { connect } from 'react-redux'
 import compose from 'recompose/compose'
-import Fab from '@material-ui/core/Fab'
-// import image from '../assets/modelX.png'
-import modelS from '../assets/modelS.png'
 import blackCar from '../assets/MS-Specs-Hero-Desktop\ 1.png'
 import ModelSpecView from './ModelDetailsGridView'
 import {fetchModelDetails} from '../actions'
@@ -57,7 +54,7 @@ class CarCard extends Component {
                     <img src={blackCar} alt='modelS'/>
                 </Grid>
                 <Grid item lg={5}>
-                    {modelData.variants !== undefined ? <ModelSpecView displayName={displayName} modelData={modelData.variants}/> : null }
+                    {modelData.variants !== undefined ? <ModelSpecView role='modelSpec' displayName={displayName} modelData={modelData.variants}/> : null }
                 </Grid>
             </Grid>
         </div>
