@@ -48,9 +48,9 @@ class DetailGridView extends Component {
         <Typography variant="h5" >{displayName}</Typography>
         
         {
-            variants.map((item) => {
+            variants.map((item, index) => {
                 return (
-                    <button class='btn' onClick={this.onVariantChange(item.variant)}> {item.variantDisplayName} </button>
+                    <button class= {(selectedVariant === '' && index === 0) || selectedVariant === item.variant ? 'variantButtonActive' : 'variantButton'} onClick={this.onVariantChange(item.variant)}> {item.variantDisplayName} </button>
                 )
             })
         }
